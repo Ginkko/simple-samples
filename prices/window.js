@@ -3,6 +3,13 @@ const csv = require('papaparse')
 
 // Run this function after the page has loaded
 $(() => {
+  updateStockValues()
+  setInterval(() => {
+    updateStockValues()
+  }, 30000);
+})
+
+function updateStockValues() {
   let url
   const stocks = {
     'oil': 'CL.F', // Crude oil, https://stooq.com/q/?s=cl.f
@@ -32,4 +39,4 @@ $(() => {
       }
     })
   }
-})
+}
